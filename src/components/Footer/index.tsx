@@ -14,23 +14,7 @@ const Footer = () => {
           <ul>
             <li>
               <MdOutlineVerified />
-              <p>Victor da Cruz</p>
-            </li>
-            <li>
-              <MdOutlineVerified />
-              <p>Mike Macedo</p>
-            </li>
-            <li>
-              <MdOutlineVerified />
               <p>Lucas Mendes</p>
-            </li>
-            <li>
-              <MdOutlineVerified />
-              <p>Guilherme Antônio</p>
-            </li>
-            <li>
-              <MdOutlineVerified />
-              <p>Breno Figueiredo</p>
             </li>
           </ul>
         </ListDevsStyled>
