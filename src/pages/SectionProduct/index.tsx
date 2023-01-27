@@ -10,21 +10,21 @@ import { useRequest } from "../../Context/Request";
 import StatePage from "./components/statePage";
 import { useModal } from "../../Context/Modal";
 import { useAuthSearch } from "../../Context/authProductSearch";
+import { IProduct } from "../Home/components/CarouselProduct"
 
 const SectionProduct = () => {
   const { leaveModalFunction } = useModal();
 
   const { TakeProductPerPage } = useRequest();
 
-  const { setProducts, setPage, setPageFilter} = useAuthSearch();
+  const { setProducts, setPage, setPageFilter, arrayProdutos} = useAuthSearch();
 
 
+  
   const takePage = (page: number) => {
-    TakeProductPerPage(page).then((result) => {
-      if (result.length != 0) {
-        setProducts(result);
+      if (arrayProdutos.length !== 0) {
+        setProducts(arrayProdutos);
       }
-    });
   };
   
   useEffect(() => {

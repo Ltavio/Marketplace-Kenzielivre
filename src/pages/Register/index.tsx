@@ -34,8 +34,8 @@ const Register = () => {
   const [auth, setAuth] = React.useState("");
   const [acceptTerm, setAcceptTerm] = React.useState(false);
 
-  const { createUser } = useRequest();
-  const { login } = useAuth();
+  // const { createUser } = useRequest();
+  const { login, createUserOff } = useAuth();
 
   const navigate = useNavigate();
 
@@ -54,7 +54,8 @@ const Register = () => {
     confirmPassword,
     ...propertiesData
   }: IDataRegister) => {
-    createUser(propertiesData)
+    createUserOff(propertiesData)
+    /* createUser(propertiesData)
       .then((_) => {
         const { email, password } = propertiesData;
         toast.success("Usuario cadastrado");
@@ -65,7 +66,7 @@ const Register = () => {
       })
       .catch((_) => {
         toast.error("Email já existe");
-      });
+      }); */
   };
 
   return (

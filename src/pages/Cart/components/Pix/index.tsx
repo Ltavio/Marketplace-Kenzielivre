@@ -12,14 +12,24 @@ const Pix = () => {
           Gerar código PIX
         </ButtonAll>
       </PixStyled>
-      <ButtonAll
-        size="large"
-        background="deft"
-        type="button"
-        onCLick={() => navigation("/cart/finishCart")}
-      >
-        Avançar para finalização
-      </ButtonAll>
+      <div className="buttons">
+        <ButtonAll
+          size="small"
+          background="deft"
+          type="button"
+          onCLick={() => navigation("/cart/finishCart")}
+        >
+          Avançar para finalização
+        </ButtonAll>
+        <ButtonAll
+          onCLick={() => navigation("/cart")}
+          type="button"
+          size="small"
+          background="greey"
+        >
+          Voltar
+        </ButtonAll>
+      </div>
     </>
   );
 };

@@ -27,21 +27,10 @@ const Cart = () => {
     <TransitionPage>
       <CartStyled>
         <Header onText={() => "teste"} />
+        <ProductCart />
         <div className="mainCart">
-          <div className="containerBoxLarge">
-            <Box width="large" MediaQuery="1024px" backgroundMobile="#1C1B23">
-              <ProductCart />
-            </Box>
-          </div>
           <div className="containerBox">
-            <Box
-              width="small"
-              minWidth="563px"
-              height="100%"
-              MediaQuery="1024px"
-            >
-              {checkout === "checkout" ? <Outlet /> : <SumaryCart />}
-            </Box>
+            {checkout === "checkout" ? <Outlet /> : <SumaryCart />}
           </div>
         </div>
       </CartStyled>

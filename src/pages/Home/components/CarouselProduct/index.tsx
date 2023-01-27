@@ -67,7 +67,6 @@ const CarouselProduct = ( { arrayDados, type }:IPropsCarouselProduct ) => {
                         promotion={promotion}
                     />
                     )
-
                     :
 
                     arrayDados?.map(({ imageLogo }:any) => 

@@ -1,16 +1,38 @@
 import styled from "styled-components";
 
 export const CartStyled = styled.div`
-  background-color: #1c1b23;
+  /* background-color: #1c1b23; */
 
   width: 100vw;
   max-width: 100vw;
-  height: 100%;
+  height: 100vh;
 
   overflow: hidden;
 
-  @media screen and (min-width: 1024px) {
-    background: rgba(28, 27, 35, 0.85);
+  background: rgba(63,61,86,85%);
+
+  * {
+    ::-webkit-scrollbar{
+        width:10px;
+        background-color: white;
+    }
+    ::-webkit-scrollbar-thumb{
+        width:10px;
+        border-radius: 4px;
+        background-color:rgba(63,61,86, 85%);
+    }
+
+  }
+
+
+  @media screen and (max-width: 1096px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
   }
 
   .mainCart {
@@ -22,36 +44,51 @@ export const CartStyled = styled.div`
 
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
     padding-top: 24px;
 
-    @media screen and (min-width: 1024px) {
-      background-image: url("../assets/backgroundCart.svg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 0;
+    @media screen and (max-width: 1096px) {
+      width: 85%;
+      
     }
+
+    @media screen and (max-width: 380px) {
+      width: 92%;
+    }
+
+
+    
     .containerBox {
-      @media screen and (max-width: 1024px) {
+      width: 30%;
+      height: 520px;
+
+      margin-right: 2%;
+      border-radius: 10px;
+
+      @media screen and (min-width: 1096px) {
+        position: fixed;
+
+        top: 130px;
+        right: 0.1vw;
+      }
+      
+
+      @media screen and (max-width: 1096px) {
+        position: inherit;
+
         display: flex;
         justify-content: center;
         width: 100%;
-        max-width: 563px;
-        /* height: 680px; */
-      }
-    }
+        max-width: 100%;
+        
+        max-height: 350px;
 
-    .containerBoxLarge {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      @media screen and (max-width: 1024px) {
-        width: 100%;
-        max-width: 563px;
       }
+
+      @media screen and (max-width: 755px) {
+        max-height: 560px;
+        margin-bottom: 20px;
+      }
+      
     }
   }
 `;

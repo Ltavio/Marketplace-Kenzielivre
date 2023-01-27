@@ -2,12 +2,13 @@ import axios from "axios";
 import { IEndereco } from "../pages/FinishCart";
 import { IProduct, IProductReturn } from "./interface/Product";
 import { IPurchase } from "./interface/purchase";
-
+import React, {SetStateAction, useState} from "react";
 import {
   IcreateUser,
   IReturnData,
   IUserReturn,
   IUserVendedor,
+  IUserCliente,
 } from "./interface/User";
 import { IUserCredentials } from "./interface/User";
 

@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import TransitionPage from "../../components/TransitionPage";
 import { useRequest } from "../../Context/Request";
-import { IProduct } from "./components/CarouselProduct";
+import { IProduct, ICardExtra } from "./components/CarouselProduct";
 import { IUserReturn } from "../../services/interface/User";
 import Banner from "./components/Banner";
 import Block from "./components/Block";
@@ -13,6 +13,7 @@ import Category from "./components/Category";
 import { HomeStyled } from "./style";
 import { useAuth } from "../../Context/auth";
 import { useModal } from "../../Context/Modal";
+import { useAuthSearch } from "../../Context/authProductSearch";
 
 const Home = () => {
   
@@ -22,15 +23,17 @@ const Home = () => {
 
   const { checkAuth, checkLevelAuth } = useAuth()
   const { leaveModalFunction } = useModal()
+  const { arrayProdutos} = useAuthSearch();
+
 
   useEffect(()=>{ checkAuth(); checkLevelAuth(); leaveModalFunction() },[])
 
-  const { TakePromotionProduct, takeUsers } = useRequest()
+  // const { TakePromotionProduct, takeUsers } = useRequest()
 
   const [ promotionProduct, setPromotionProduct ] = useState<IProduct[]>()
-  const [ imagelogo, setImageLogo ] = useState<IUserReturn[]>()
+  const [ imagelogo, setImageLogo ] = useState<any[]>()
 
-  useEffect(()=>{
+  /* useEffect(()=>{
 
     TakePromotionProduct()
       .then( products => setPromotionProduct( products ) )
@@ -40,6 +43,26 @@ const Home = () => {
       .then( users => setImageLogo( users.filter( user => user.imageLogo ) ) )
       .catch( error => console.log( error ) )
 
+  },[]) */
+
+  // ALIMENTANDO VITRINE NA MÃO
+  
+
+  const arrayLogo:ICardExtra[] = [
+    {
+      imageLogo: "https://partnernetwork.vtexassets.com/arquivos/ids/155540/logo_kabum.png?v=637533500920630000"
+    },
+    {
+      imageLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdauaTYTZb_e7KFsKvm0Y1Vqec_yvbr7tG1AiT0qUeww&s"
+    },
+    {
+      imageLogo: "https://www.pichau.com.br/default-social.jpeg"
+    },
+  ]
+  
+  useEffect(()=>{
+    setPromotionProduct(arrayProdutos)
+    setImageLogo(arrayLogo)
   },[])
 
   return (

@@ -37,7 +37,9 @@ const Header = ({
     takePage, 
     setProductFilter,
     setPage,
-    setPageFilter
+    setPageFilter,
+    arrayProdutos,
+    productFilter
   } = useAuthSearch();
 
   const navigate = useNavigate();
@@ -51,6 +53,13 @@ const Header = ({
   const takeSearch = () => {
 
     if( filter != "" ){
+      
+      arrayProdutos.filter((elemento: any) => {
+        if(elemento.description.toLowerCase().includes(filter.toLowerCase())){
+          setProductFilter(elemento)
+        }
+      })
+
       takeFilter( 1 );
 
       setPage(1)
@@ -73,6 +82,7 @@ const Header = ({
         <div className="blockSearch global">
           <input
             onChange={takeText}
+            value={filter}
             className="blockSearch__SearchText global"
             type="text"
             placeholder="Buscar produtos, marcas e muito mais..."

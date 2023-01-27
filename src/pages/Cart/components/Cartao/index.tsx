@@ -61,8 +61,21 @@ const Cartao = () => {
           />
         </div>
         <div className="buttonFormCartao">
-          <ButtonAll type="submit" size="large" background="deft">
+          <ButtonAll
+            size="small"
+            background="deft"
+            type="button"
+            onCLick={() => navigation("/cart/finishCart")}
+          >
             Avançar para finalização
+          </ButtonAll>
+          <ButtonAll
+            onCLick={() => navigation("/cart")}
+            type="button"
+            size="small"
+            background="greey"
+          >
+            Voltar
           </ButtonAll>
         </div>
       </form>
